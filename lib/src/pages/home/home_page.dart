@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sales_app/src/pages/login/controller/login_controller.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
+  const HomePage({super.key, required this.title, required this.controller});
 
   final String title;
+  final LoginController controller;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -11,6 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _counter = 0;
+  late final controller = widget.controller;
 
   void _incrementCounter() {
     setState(() {
@@ -24,6 +27,14 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        actions: [
+          IconButton(
+            onPressed: () {
+              controller.logout();
+            },
+            icon: const Icon(Icons.exit_to_app),
+          )
+        ],
       ),
       body: Center(
         child: Column(

@@ -82,7 +82,7 @@ class Loginpage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 textColor: Colors.white,
                 onPressed: () {
-                  controller.makeLogin(
+                  controller.login(
                     email: emailController.text,
                     password: passwordController.text,
                   );

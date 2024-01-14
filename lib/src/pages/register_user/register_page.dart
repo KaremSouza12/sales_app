@@ -9,6 +9,9 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    late TextEditingController nameController = TextEditingController();
+    late TextEditingController emailController = TextEditingController();
+    late TextEditingController passwordController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         iconTheme:
@@ -43,18 +46,21 @@ class RegisterPage extends StatelessWidget {
               const SizedBox(height: 20),
 
               /// Fields to login
-              const FormWidget(
+              FormWidget(
                 icon: Icons.person,
                 label: 'Nome',
+                controller: nameController,
               ),
-              const FormWidget(
+              FormWidget(
                 icon: Icons.email,
                 label: 'Email',
+                controller: emailController,
               ),
-              const FormWidget(
+              FormWidget(
                 icon: Icons.lock,
                 label: 'Senha',
                 isSecret: true,
+                controller: passwordController,
               ),
 
               /// Buttom to sign

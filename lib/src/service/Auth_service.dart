@@ -17,7 +17,7 @@ class AuthService extends ChangeNotifier {
     final prefes = await SharedPreferences.getInstance();
     try {
       Response response = await _dio.post(
-        Api.loginRouteApi,
+        Api.login,
         data: {
           "email": email,
           "password": password,

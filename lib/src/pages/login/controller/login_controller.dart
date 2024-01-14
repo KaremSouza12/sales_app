@@ -7,8 +7,11 @@ class LoginController {
 
   final AuthService _authService;
 
-  Future<void> makeLogin(
-      {required String email, required String password}) async {
+  Future<void> login({required String email, required String password}) async {
     await _authService.login(email: email, password: password);
+  }
+
+  Future<void> logout() async {
+    await _authService.logout();
   }
 }

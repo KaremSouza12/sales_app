@@ -1,3 +1,4 @@
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sales_app/src/pages/home/home_page.dart';
 import 'package:sales_app/src/pages/login/routes.dart';
@@ -17,8 +18,6 @@ final appRouter = GoRouter(
     final loggingIn = state.matchedLocation == '/login';
     final register = state.matchedLocation == '/login/register';
 
-    print(state.extra);
-
     if (register) return '/login/register';
     if (!loggedIn) return loggingIn ? null : '/login';
 
@@ -32,7 +31,10 @@ final appRouter = GoRouter(
   routes: [
     GoRoute(
       path: initialRoute,
-      builder: (context, state) => const HomePage(title: 'title'),
+      builder: (context, state) => HomePage(
+        title: 'title',
+        controller: GetIt.instance.get(),
+      ),
     ),
     ...loginRoutes
   ],
